@@ -6,20 +6,37 @@ $(document).ready(function(){
    upper.hide();
 
 //when the shift key is held down the lower case keyboard is hidden and the upper case keyboard is shown
+//when keys are pressed they should be highlighted in the browser 
 $(document).keydown(function(e){
-    if (e.keyCode == 16){
+    let key = e.key;
+
+    if (key == "Shift"){
         lower.hide();
         upper.show();
+    } else {
+        let keyAscii = key.charCodeAt(0);
+        let keyID = "#" + keyAscii + ".well";
+        $(keyID).css("background", "green");
     }
 });
 
 //when shift key is released the lower case keyboard is shown and the upper case keyboard is hidden
+//when keys are pressed they should be highlighted in the browser 
 
 $(document).keyup(function(e){
-    if (e.keyCode == 16){
+    let key = e.key;
+
+    if (key == "Shift"){
         lower.show();
         upper.hide();
+    } else {
+        let keyAscii = key.charCodeAt(0);
+        let keyID = "#" + keyAscii + ".well";
+        $(keyID).css("background", "#f5f5f5");
     }
-})
+});
+
+
+
 
 })
